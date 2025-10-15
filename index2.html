@@ -72,36 +72,6 @@
     /* Overlay background adapts to theme */
     .overlay-bg {background: linear-gradient(rgba(2, 6, 23, 0.80), rgba(2,6,23,0.80)); /* dark mode */}
     html.light .overlay-bg {background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)); /* light mode */}
-
-    /* scrollable nav styles */
-    .nav-scroll {
-      display: inline-flex;
-      gap: 0.75rem;
-      align-items: center;
-      white-space: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Firefox */
-      padding-bottom: 6px;
-    }
-    .nav-scroll::-webkit-scrollbar { display: none; } /* WebKit */
-
-    /* visual fade indicators on sides */
-    .nav-fade {
-      pointer-events: none;
-      width: 44px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      z-index: 50;
-    }
-    .nav-fade.left { left: 0; background: linear-gradient(to right, rgba(8,18,38,1), rgba(8,18,38,0)); }
-    html.light .nav-fade.left { background: linear-gradient(to right, rgba(224,234,253,1), rgba(224,234,253,0)); }
-    .nav-fade.right { right: 0; background: linear-gradient(to left, rgba(8,18,38,1), rgba(8,18,38,0)); }
-    html.light .nav-fade.right { background: linear-gradient(to left, rgba(224,234,253,1), rgba(224,234,253,0)); }
-
-    /* Make resume + theme buttons not shrink and stay clickable inside scroll container */
-    .nav-action { flex: 0 0 auto; }
   </style>
 </head>
 <body class="bg-[#081226] text-slate-200">
@@ -114,25 +84,15 @@
           <div class="text-xs text-slate-400">Business Intelligence Engineer</div>
         </div>
       </a>
-      <div class="relative flex items-center">
-        <div class="nav-fade left" aria-hidden="true"></div>
-
-        <div class="nav-scroll" role="navigation" aria-label="Primary">
-          <a href="#skills" class="text-sm hover:text-white nav-action">Skills</a>
-          <a href="#education" class="text-sm hover:text-white nav-action">Education</a>
-          <a href="#experience" class="text-sm hover:text-white nav-action">Experience</a>
-          <a href="#projects" class="text-sm hover:text-white nav-action">Projects</a>
-          <a href="#visualizations" class="text-sm hover:text-white nav-action">Visualizations</a>
-          <a href="#contact" class="text-sm hover:text-white nav-action">Contact</a>
-
-          <a id="navResume" href="assets/documents/FemintoFrancis_Resume_BI.pdf"
-             target="_blank" rel="noopener noreferrer"
-             class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm nav-action">Resume</a>
-
-          <button id="themeBtn" class="px-3 py-1 rounded-md bg-slate-800 text-sm nav-action" aria-pressed="false">Light</button>
-        </div>
-
-        <div class="nav-fade right" aria-hidden="true"></div>
+      <div class="flex items-center space-x-6">
+        <a href="#skills" class="text-sm hover:text-white">Skills</a>
+        <a href="#education" class="text-sm hover:text-white">Education</a>
+        <a href="#experience" class="text-sm hover:text-white">Experience</a>
+        <a href="#projects" class="text-sm hover:text-white">Projects</a>
+        <a href="#visualizations" class="text-sm hover:text-white">Visualizations</a>
+        <a href="#contact" class="text-sm hover:text-white">Contact</a>
+        <a id="navResume" href="assets/documents/FemintoFrancis_Resume_BI.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm">Resume</a>
+        <button id="themeBtn" class="px-3 py-1 rounded-md bg-slate-800 text-sm" aria-pressed="false">Light</button>
       </div>
     </div>
   </nav>
@@ -545,28 +505,6 @@
             window.location.href = mailto;
             contactStatus.textContent = 'Opened mail client.';
         });
-        })();
-
-        (function(){
-          const scroller = document.querySelector('.nav-scroll');
-          const fadeL = document.querySelector('.nav-fade.left');
-          const fadeR = document.querySelector('.nav-fade.right');
-          if(!scroller) return;
-
-          function updateFades(){
-            const max = scroller.scrollWidth - scroller.clientWidth;
-            if (max <= 2) {
-              fadeL.style.display = fadeR.style.display = 'none';
-              return;
-            }
-            fadeL.style.display = scroller.scrollLeft > 8 ? 'block' : 'none';
-            fadeR.style.display = scroller.scrollLeft < (max - 8) ? 'block' : 'none';
-          }
-
-          // init
-          updateFades();
-          scroller.addEventListener('scroll', updateFades);
-          window.addEventListener('resize', updateFades);
         })();
     </script>
 </body>
