@@ -1,170 +1,511 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feminto Francis | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Dark mode toggle
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-        }
-    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feminto Francis — Business Intelligence Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* adjust if navbar height changes */
+    }
+    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    .fade-up{opacity:0;transform:translateY(12px);transition:opacity .45s ease, transform .45s ease}
+    .fade-up.show{opacity:1;transform:none}
+    .pill{display:inline-flex;align-items:center;padding:.35rem .6rem;border-radius:9999px;background:rgba(255,255,255,0.05);font-weight:600;transition:background .3s ease}
+    .card{transition:transform .28s cubic-bezier(.2,.9,.2,1)}
+    .card:hover{transform:translateY(-6px)}
+
+    body{background:#081226;color:#e6eef8}
+    .muted{color:rgba(148,163,184,1)}
+    .card-bg{background:rgba(255,255,255,0.02); color:inherit}
+
+    nav{background:transparent;transition:background .25s ease, box-shadow .25s ease}
+    nav.nav-solid{background:rgb(2, 6, 23);box-shadow:0 8px 30px rgba(2,6,23,0.45)}
+    html.light nav.nav-solid{background:#e0eafd;box-shadow:0 8px 30px rgba(11,18,32,0.06)}
+
+    html.light body{background:#e0eafd;color:#0b1220}
+    html.light .text-slate-400{color:#475569}
+    html.light .text-slate-300{color:#475569}
+    html.light .pill{background:#dce5f8;color:#0b1220}
+    html.light section.section-bg{background:#dce5f8}
+    html.light #skills .card-bg{background:#d5def3}
+    html.light #skills .card-bg:hover{border:1px solid #e1e9f9}
+    html.light #education .card-bg, html.light #experience .card-bg, html.light #projects .card-bg, html.light #contact .card-bg{background:#dce5f8}
+    html.light .card, html.light .card *{color:#0b1220}
+    html.light nav a, html.light nav .text-sm, html.light nav .text-xs{color:#0b1220}
+    html.light #themeBtn{background:#cad5e6;color:#0b1220}
+    html.light #navResume{background:#4f46e4;color:white}
+    html.light #contactSubmit{background:#4f46e4;color:white}
+
+    html:not(.light) #skills .card-bg {
+      background: rgba(255,255,255,0.05);
+      transition: transform .25s ease;
+    }
+    html:not(.light) #skills .card-bg:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Experience card collapse styles */
+    .exp-card {cursor: pointer}
+    .exp-card-header {display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .exp-card-title {font-weight:600}
+    .exp-card-meta {font-size:0.75rem;color:rgba(148,163,184,1)}
+    .exp-card-body {overflow:hidden;max-height:0;transition:max-height .35s ease, opacity .25s ease;padding-top:0}
+    .exp-card.open .exp-card-body {max-height:1000px; padding-top:12px}
+    .chev {width:18px;height:18px;transition:transform .25s ease;flex-shrink:0}
+    .exp-card.open .chev {transform:rotate(180deg)}
+
+    /* subtle focus state */
+    .exp-card:focus-within {outline:2px solid rgba(124,58,237,0.14);outline-offset:3px;border-radius:12px}
+
+    footer img {filter: invert(90%) brightness(200%); transition:filter .3s ease;}
+    html.light footer img {filter: invert(0%) brightness(100%);} 
+
+    headIcon img {filter: invert(90%) brightness(200%); transition:filter .3s ease;}
+    html.light headIcon img {filter: invert(0%) brightness(100%);}
+
+    /* Overlay background adapts to theme */
+    .overlay-bg {background: linear-gradient(rgba(2, 6, 23, 0.80), rgba(2,6,23,0.80)); /* dark mode */}
+    html.light .overlay-bg {background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)); /* light mode */}
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 font-sans">
-
-    <!-- Header / Navigation -->
-    <header class="bg-blue-600 dark:bg-gray-800 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <h1 class="text-white text-2xl font-bold">Feminto Francis</h1>
-            <nav>
-                <ul class="flex space-x-6 text-white">
-                    <li><a href="#about" class="hover:underline">About</a></li>
-                    <li><a href="#skills" class="hover:underline">Skills</a></li>
-                    <li><a href="#experience" class="hover:underline">Experience</a></li>
-                    <li><a href="#projects" class="hover:underline">Projects</a></li>
-                    <li><a href="#education" class="hover:underline">Education</a></li>
-                    <li><a href="#contact" class="hover:underline">Contact</a></li>
-                </ul>
-            </nav>
-            <button onclick="toggleDarkMode()" class="bg-white text-blue-600 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded">Toggle Dark Mode</button>
+<body class="bg-[#081226] text-slate-200">
+  <nav id="mainNav" class="w-full fixed top-0 left-0 z-40">
+    <div class="nav-inner max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#hero" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center font-semibold">FF</div>
+        <div class="hidden md:block">
+          <div class="text-sm font-semibold">Feminto Francis</div>
+          <div class="text-xs text-slate-400">Business Intelligence Engineer</div>
         </div>
-    </header>
+      </a>
+      <div class="flex items-center space-x-6">
+        <a href="#skills" class="text-sm hover:text-white">Skills</a>
+        <a href="#education" class="text-sm hover:text-white">Education</a>
+        <a href="#experience" class="text-sm hover:text-white">Experience</a>
+        <a href="#projects" class="text-sm hover:text-white">Projects</a>
+        <a href="#visualizations" class="text-sm hover:text-white">Visualizations</a>
+        <a href="#contact" class="text-sm hover:text-white">Contact</a>
+        <a id="navResume" href="assets/documents/FemintoFrancis_Resume_BI.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm">Resume</a>
+        <button id="themeBtn" class="px-3 py-1 rounded-md bg-slate-800 text-sm" aria-pressed="false">Light</button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="text-center py-20 bg-blue-100 dark:bg-gray-800">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">Hi, I’m Feminto Francis</h2>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto">
-            Business Intelligence Engineer with 6 years of experience in data engineering, analytics, and BI. I transform complex data into actionable insights and help organizations make smarter decisions.
-        </p>
-        <div class="mt-6 flex justify-center space-x-4">
-            <a href="https://www.linkedin.com/in/feminto-francis" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">LinkedIn</a>
-            <a href="https://github.com/Feminto" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800">GitHub</a>
-            <a href="mailto:feminto@gmail.com" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Email Me</a>
+  <header id="hero" class="pt-28 pb-10">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-3">Feminto Francis</h1>
+        <div class="flex gap-3 mb-6">
+          <div class="pill">Business Intelligence Engineer</div>
+          <div class="pill">USA</div>
         </div>
+        <p class="text-slate-300 max-w-xl mb-6 font-medium text-justify">6+ years of experience in advanced reporting and building scalable ETL pipelines. Skilled in handling large datasets, designing custom dashboards, and transforming complex information into meaningful insights to drive decisions.</p>
+        <!-- trying the icons below description -->
+        <headIcon class="flex justify-start gap-10 items-center text-center mt-10">
+            <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
+            </a>
+            <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
+            </a>
+            <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tableau</span>
+            </a>
+            <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Leetcode</span>
+            </a>
+        </headIcon>
+      </div>
+      <div class="flex items-center justify-center md:justify-center">
+        <div class="profile-fade">
+          <img src="assets/images/profile.jpg" alt="Profile" class="w-86 h-96 object-cover rounded-md">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 space-y-16 pb-24">
+    <section id="skills" class="fade-up p-6 rounded-2xl card-bg section-bg mt-6">
+      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+      <p class="text-slate-400 mb-3 max-w-2xl">Core technical skills and tools I've used in my professional experience.</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl card card-bg">
+          <div class="text-xs text-slate-400">Programming &amp; Scripting</div>
+          <div class="mt-3 text-sm font-semibold">Python • SQL • PySpark</div>
+        </div>
+        <div class="p-6 rounded-2xl card card-bg">
+          <div class="text-xs text-slate-400">Database &amp; Data Warehousing</div>
+          <div class="mt-3 text-sm font-semibold">Redshift • Postgres • Athena • Hadoop</div>
+        </div>
+        <div class="p-6 rounded-2xl card card-bg">
+          <div class="text-xs text-slate-400">Cloud &amp; ETL</div>
+          <div class="mt-3 text-sm font-semibold">AWS • Databricks • Amazon S3 • Azure</div>
+        </div>
+        <div class="p-6 rounded-2xl card card-bg">
+          <div class="text-xs text-slate-400">Reporting &amp; BI</div>
+          <div class="mt-3 text-sm font-semibold">Tableau • Power BI • Matplotlib • SSRS</div>
+        </div>
+      </div>
+    </section>
+      <section id="education" class="fade-up">
+      <h2 class="text-2xl font-semibold mb-4">Education</h2>
+      <div class="grid md:grid-cols-1 gap-6">
+        <div class="p-6 rounded-2xl card card-bg">
+          <h3 class="font-semibold">MS Business Analytics</h3>
+          <p class="text-xs muted">Arizona State University (ASU) • May 2023 • GPA 3.9</p>
+          <p class="mt-3 text-slate-300">Focused on applied statistics, data modeling, and big data technologies, learning to derive insights using predictive modeling, machine learning, and visualization to drive data-driven decisions in real business contexts.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="container mx-auto my-12 px-4">
-        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
-        <p>
-            Business Intelligence Engineer with 6 years of experience in building and optimizing data pipelines, advanced reporting, and streamlining ETL processes. Skilled in handling large datasets, optimizing workflows, designing custom dashboards, and transforming complex information into meaningful insights to drive decision-making.
-        </p>
-    </section>
+    <section id="experience" class="fade-up">
+      <h2 class="text-2xl font-semibold mb-4">Experience</h2>
+      <div class="space-y-4">
 
-    <!-- Skills Section -->
-    <section id="skills" class="bg-white dark:bg-gray-900 py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-semibold mb-8 text-center">Skills & Technologies</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="p-4 border rounded-lg shadow hover:shadow-lg transition">Python, SQL, PySpark</div>
-                <div class="p-4 border rounded-lg shadow hover:shadow-lg transition">Redshift, Postgres, Athena</div>
-                <div class="p-4 border rounded-lg shadow hover:shadow-lg transition">AWS, Databricks, Amazon S3, Alteryx</div>
-                <div class="p-4 border rounded-lg shadow hover:shadow-lg transition">Tableau, Power BI, Matplotlib, SSRS, Excel</div>
-                <div class="p-4 border rounded-lg shadow hover:shadow-lg transition">GitHub, Workflow Automation</div>
-                <div class="p-4 border rounded-lg shadow hover:shadow-lg transition">LLaMA, GPT, Spacy, VADER, ML Models</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="container mx-auto my-12 px-4">
-        <h2 class="text-3xl font-semibold mb-8 text-center">Professional Experience</h2>
-
-        <div class="space-y-8">
+        <!-- Experience card 1 -->
+        <article class="p-6 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
+          <div class="exp-card-header">
             <div>
-                <h3 class="text-xl font-bold">Business Intelligence Engineer</h3>
-                <p class="italic mb-2">Arizona State University (Remote, USA) | June 2023 – Present</p>
-                <ul class="list-disc ml-5 space-y-1">
-                    <li>Engineered and automated scalable SQL-based ETL pipelines, reducing processing time by 40%.</li>
-                    <li>Implemented AI-powered LLaMA model for sentiment analysis on student surveys, leading to course restructuring and 25% cost reduction.</li>
-                    <li>Built statistical models in Python to forecast enrollments, supporting revenue forecasting and driving 19% profit increase.</li>
-                    <li>Developed and maintained Tableau dashboards tracking KPIs for Academics, Finance, HR, and Employee data.</li>
-                </ul>
+              <div class="exp-card-title">Business Intelligence Engineer - Arizona State University</div>
+              <div class="exp-card-meta">June 2023 - Present (Remote, USA)</div>
             </div>
-
-            <div>
-                <h3 class="text-xl font-bold">BI Engineer (Business Technology Solutions Associate)</h3>
-                <p class="italic mb-2">ZS Associates, Pune, India | Nov 2020 – Jul 2022</p>
-                <ul class="list-disc ml-5 space-y-1">
-                    <li>Automated data deliveries to Amazon S3 using PySpark scripts, reducing processing time by 30%.</li>
-                    <li>Led migration from Microsoft SSRS to Tableau dashboards, increasing report utilization by 70%.</li>
-                    <li>Automated Tableau dashboard refresh, optimizing transaction time by 50% and eliminating manual work.</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="text-xl font-bold">Data Engineer</h3>
-                <p class="italic mb-2">L&T Technology Services Ltd., Vadodara, India | Jul 2018 – Sep 2020</p>
-                <ul class="list-disc ml-5 space-y-1">
-                    <li>Performed transformations on large unstructured data and handled complex SQL queries for reporting.</li>
-                    <li>Collaborated with stakeholders to deliver solutions aligned with business goals.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="bg-white dark:bg-gray-900 py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-semibold mb-8 text-center">Projects</h2>
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-                <div class="border rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-bold mb-2">AI-Powered Sentiment Analysis</h3>
-                    <p class="mb-3">Implemented LLaMA model to analyze student surveys, helping restructure courses and optimize resource allocation.</p>
-                    <p class="text-sm mb-2"><strong>Technologies:</strong> Python, LLaMA, SQL</p>
-                    <a href="#" class="text-blue-600 underline">View on GitHub</a>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-bold mb-2">Enrollment Forecasting Model</h3>
-                    <p class="mb-3">Developed a statistical model to forecast student enrollments, supporting budget planning and increasing revenue by 19%.</p>
-                    <p class="text-sm mb-2"><strong>Technologies:</strong> Python, SQL, Pandas</p>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-bold mb-2">ETL Pipeline Automation</h3>
-                    <p class="mb-3">Built scalable ETL pipelines using SQL and PySpark, reducing data processing time by 40% and optimizing reporting workflows.</p>
-                    <p class="text-sm mb-2"><strong>Technologies:</strong> SQL, PySpark, AWS, Redshift</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="container mx-auto my-12 px-4">
-        <h2 class="text-3xl font-semibold mb-4 text-center">Education</h2>
-        <p class="text-center"><strong>Master’s in Business Analytics</strong>, Arizona State University (Aug 2022 – May 2023) | GPA: 3.9</p>
-    </section>
-
-    <!-- Achievements Section -->
-    <section class="bg-white dark:bg-gray-900 py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-semibold mb-4 text-center">Achievements</h2>
-            <ul class="list-disc ml-8 space-y-1">
-                <li>Sun Award for Innovation - ASU (Oct 2024): Designed and implemented an efficient data pipeline, improving processing time by 40%.</li>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="exp-card-body">
+            <ul class="mt-3 list-disc list-inside text-slate-300">
+              <li>Automated scalable SQL-based ETL pipelines, reducing processing time by 40%.</li>
+              <li>Implemented an AI LLaMA model for sentiment analysis, improving course planning and cutting costs by 25%.</li>
+              <li>Optimized Redshift data models, reducing query time by 50% and enhancing data quality.</li>
+              <li>Built Python models to forecast enrollments, driving a 19% profit increase over two years.</li>
+              <li>Developed Tableau dashboards to track KPIs across Academics, Finance, HR, and Employee data.</li>
+              <li>Resolved 50+ quarterly data issues, delivering actionable insights to cross-functional teams.</li>
             </ul>
+          </div>
+        </article>
+
+        <!-- Experience card 2 -->
+        <article class="p-6 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
+          <div class="exp-card-header">
+            <div>
+              <div class="exp-card-title">Business Analyst - ZS Associates</div>
+              <div class="exp-card-meta">Nov 2020 - Jul 2022 (Pune, India)</div>
+            </div>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="exp-card-body">
+            <ul class="mt-3 list-disc list-inside text-slate-300">
+              <li>Automated PySpark data deliveries to S3, reducing processing time by 30% and improving data availability.</li>
+              <li>Optimized ETL workflows, cutting transformation time by 25% and enhancing storage efficiency.</li>
+              <li>Developed SQL solutions on Redshift and Postgres, streamlining report generation.</li>
+              <li>Transitioned reporting from SSRS to Tableau, boosting report utilization by 70%.</li>
+              <li>Automated Tableau refreshes, reducing transaction time by 50% and removing manual steps.</li>
+              <li>Designed Alteryx workflows, cutting job runtime by 25%.</li>
+              <li>Automated daily Adobe and Google Analytics reports, saving 12% in daily effort.</li>
+              <li>Collaborated with teams to meet reporting needs, enabling data-driven decisions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Experience card 3 -->
+        <article class="p-6 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
+          <div class="exp-card-header">
+            <div>
+              <div class="exp-card-title">Data Engineer - Larsen & Toubro</div>
+              <div class="exp-card-meta">Jul 2018 - Sep 2020 (Vadodara, India)</div>
+            </div>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="exp-card-body">
+            <ul class="mt-3 list-disc list-inside text-slate-300">
+              <li>Transformed large unstructured data and optimized complex SQL queries on Redshift, improving operations by 25%.</li>
+              <li>Collaborated with stakeholders to gather insights and deliver data solutions aligned with business goals.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="projects" class="fade-up">
+      <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="p-6 rounded-2xl card card-bg">
+          <h3 class="font-semibold">AI-Powered Course Evaluation</h3>
+          <div class="exp-card-meta">Arizona State University</div>
+          <p class="text-slate-300 mt-2">Led an AI initiative using the Llama model to analyze student survey, evaluate course and instructor performance, and guide data-driven decisions on course restructuring and resource allocation. This improved teaching quality and reduced operational costs by 25%.</p>
+          <div class="mt-3 text-xs muted">Llama • GPT • Redshift • Python</div>
+        </article>
+        <article class="p-6 rounded-2xl card card-bg">
+          <h3 class="font-semibold">Product & Customer Behavior</h3>
+          <div class="exp-card-meta">Flexivan LLC</div>
+          <p class="text-slate-300 mt-2">Analyzed historical data for FlexiVan LLC, to forecast weekly product demand using machine learning techniques like feature engineering and gradient boosting, uncovering customer trends and seasonal patterns that optimized inventory and resource management.</p>
+          <div class="mt-3 text-xs muted">Python • SQL • PowerBI • Machine Learning</div>
+        </article>
+        <article class="p-6 rounded-2xl card card-bg">
+          <h3 class="font-semibold">Report Modernization</h3>
+          <div class="exp-card-meta">ZS Associates</div>
+          <p class="text-slate-300 mt-2">Redesigned the reporting framework by migrating from SSRS to Tableau, creating interactive, intuitive dashboards with richer insights and automated data updates. This initiative boosted report usage by 70% and strengthened data-driven decision-making across the organization.
+</p>
+          <div class="mt-3 text-xs muted">SQL • Tableau • Microsoft SSRS </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="visualizations" class="fade-up">
+        <h2 class="text-2xl font-semibold mb-4">Visualizations</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <article class="relative rounded-2xl overflow-hidden card card-bg group">
+            <a href="https://public.tableau.com/app/profile/feminto.francis/viz/WorldTemperatureChange1994-2013/Dashboard1"
+                target="_blank" rel="noopener noreferrer" class="block" aria-label="Open World Temperature Change dashboard">
+                <div class="w-full h-44 overflow-hidden rounded-md">
+                <img src="assets/images/world_temp_change.jpg"
+                    alt="World Temperature Change thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+
+                <!-- Overlay: appears on hover -->
+                <div class="absolute inset-0 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overlay-bg">
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2 text-white">World Temperature Change</h3>
+                    <p class="text-sm text-slate-100 max-w-xs mx-auto">An interactive view of global temperature changes across countries and years with trend highlights.</p>
+                </div>
+                </div>
+
+                <!-- Title (remains visible below the image) -->
+                <h3 class="mt-3 text-sm font-semibold text-center">World Temperature Change</h3>
+            </a>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="relative rounded-2xl overflow-hidden card card-bg group">
+            <a href="https://public.tableau.com/app/profile/feminto.francis/viz/COVID-19Satistics/COVID-19Statistics"
+                target="_blank" rel="noopener noreferrer" class="block" aria-label="Open COVID-19 Statistics dashboard">
+                <div class="w-full h-44 overflow-hidden rounded-md">
+                <img src="assets/images/COVID_19.jpg"
+                    alt="COVID-19 Statistics thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overlay-bg">
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2 text-white">COVID-19 Statistics</h3>
+                    <p class="text-sm text-slate-100 max-w-xs mx-auto">Daily cases, testing, and vaccination trends with filters for regions and timelines.</p>
+                </div>
+                </div>
+
+                <h3 class="mt-3 text-sm font-semibold text-center">COVID-19 Statistics</h3>
+            </a>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="relative rounded-2xl overflow-hidden card card-bg group">
+            <a href="https://public.tableau.com/app/profile/feminto.francis/viz/F12019Race/RaceResult"
+                target="_blank" rel="noopener noreferrer" class="block" aria-label="Open Formula 1 2019 dashboard">
+                <div class="w-full h-44 overflow-hidden rounded-md">
+                <img src="assets/images/Formula1.jpg"
+                    alt="Formula 1 2019 thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overlay-bg">
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold mb-2 text-white">Formula 1 (2019)</h3>
+                    <p class="text-sm text-slate-100 max-w-xs mx-auto">Race results, driver standings and lap-time comparisons from the 2019 season.</p>
+                </div>
+                </div>
+
+                <h3 class="mt-3 text-sm font-semibold text-center">Formula 1 (2019)</h3>
+            </a>
+            </article>
         </div>
+        </section>
+
+    <section id="contact" class="fade-up">
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <div class="p-6 rounded-2xl card card-bg">
+        <!-- <p class="text-slate-400 mb-4">Let's connect!</p> -->
+        <div class="grid md:grid-cols-2 gap-6 items-start">
+          <!-- Left: contact details (unchanged) -->
+            <div>
+                <p class="text-slate-300 text-m">I’d love to learn more about any exciting opportunities where I can contribute and make a meaningful impact. Let’s connect and explore how I can add value to your team or project.</p>
+                <p class="text-sm mt-5 text-slate-400">Email</p>
+                <a href="mailto:feminto@gmail.com" class="block font-semibold">feminto@gmail.com</a>
+                <p class="text-sm mt-5 text-slate-400">Phone</p>
+                <div class="font-semibold">+1 (602) 727-1308</div>
+            </div>
+          <!-- Right: contact form -->
+          <div>
+            <form id="contactForm" class="space-y-4" aria-label="Contact form">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="sr-only">Name</label>
+                  <input id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Name">
+                </div>
+                <div>
+                  <label for="email" class="sr-only">Email</label>
+                  <input id="email" name="email" type="email" required class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Email">
+                </div>
+              </div>
+
+              <div>
+                <label for="subject" class="sr-only">Subject</label>
+                <input id="subject" name="subject" class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Subject">
+              </div>
+
+              <div>
+                <label for="message" class="sr-only">Message</label>
+                <textarea id="message" name="message" rows="3" required class="w-full px-4 py-3 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Message"></textarea>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <button type="submit" id="contactSubmit" class="px-4 py-2 rounded-md bg-indigo-600 text-white">Send message</button>
+                <span id="contactStatus" class="text-sm text-slate-400" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container mx-auto my-12 px-4">
-        <h2 class="text-3xl font-semibold mb-4 text-center">Contact Me</h2>
-        <form class="max-w-xl mx-auto space-y-4">
-            <input type="text" placeholder="Your Name" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <input type="email" placeholder="Your Email" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <textarea placeholder="Your Message" class="w-full border p-3 rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Send Message</button>
-        </form>
-    </section>
+  <footer class="border-t border-slate-800 py-8">
+    <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
+        <div class="flex justify-center gap-10 items-center text-center">
+            <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
+            </a>
+            <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
+            </a>
+            <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tableau</span>
+            </a>
+            <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Leetcode</span>
+            </a>
+        </div>
+        <p class='mt-6 text-xs text-slate-500'>© 2025 Feminto Francis. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 dark:bg-gray-800 text-white py-6 text-center">
-        <p>© 2025 Feminto Francis | <a href="mailto:feminto@gmail.com" class="underline">feminto@gmail.com</a></p>
-    </footer>
 
+    <script>
+        const obs = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') }) },{threshold:0.12})
+        document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
+
+        const themeBtn = document.getElementById('themeBtn');
+        document.documentElement.classList.remove('light');
+        themeBtn.textContent = 'Light';
+
+        themeBtn.addEventListener('click', ()=>{
+        const isLightNow = document.documentElement.classList.toggle('light');
+        themeBtn.textContent = isLightNow ? 'Dark' : 'Light';
+        });
+
+        (function(){
+        const nav = document.getElementById('mainNav');
+        const nameEl = document.querySelector('#hero h1');
+        if(!nav || !nameEl) return;
+        let navHeight = nav.offsetHeight;
+        let ticking = false;
+        function check() {
+            const rect = nameEl.getBoundingClientRect();
+            if(rect.bottom <= navHeight + 4) nav.classList.add('nav-solid');
+            else nav.classList.remove('nav-solid');
+        }
+        window.addEventListener('resize', ()=>{ navHeight = nav.offsetHeight; check(); });
+        window.addEventListener('scroll', ()=>{ if(!ticking){ requestAnimationFrame(()=>{ check(); ticking=false }); ticking=true } });
+        check();
+        })();
+
+        // Collapsible experience cards
+        (function(){
+        const cards = document.querySelectorAll('.exp-card');
+        cards.forEach(card => {
+            const header = card.querySelector('.exp-card-header');
+            const body = card.querySelector('.exp-card-body');
+            header.addEventListener('click', toggle);
+            card.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+            function toggle(){
+            const open = card.classList.toggle('open');
+            card.setAttribute('aria-expanded', open);
+            // animate max-height (already controlled by CSS class)
+            if(open){
+                body.style.maxHeight = body.scrollHeight + 'px';
+            } else {
+                body.style.maxHeight = '0px';
+            }
+            }
+            // ensure collapsed on load
+            body.style.maxHeight = '0px';
+        });
+        })();
+
+        // Contact form handler
+        (function(){
+        // If you have a form endpoint (Formspree, Netlify Forms, etc.), paste it here.
+        // e.g. const FORM_ENDPOINT = 'https://formspree.io/f/yourformid';
+        const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycby6UqMQm6YNEs-n_stB0yTHioZ02wuoZ5HtVTm5S451kC2sJRBC-7_44y4J8BjVjG2r/exec';
+
+        const contactForm = document.getElementById('contactForm');
+        const contactStatus = document.getElementById('contactStatus');
+        if(!contactForm) return;
+
+        contactForm.addEventListener('submit', async (e)=>{
+            e.preventDefault();
+            contactStatus.textContent = 'Sending...';
+            const formData = new FormData(contactForm);
+
+            // If a FORM_ENDPOINT is provided, POST the form data there (recommended)
+            if(FORM_ENDPOINT){
+            try{
+                const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                if(res.ok){
+                contactStatus.textContent = 'Message sent — thank you!';
+                contactForm.reset();
+                } else {
+                const data = await res.json().catch(()=>null);
+                contactStatus.textContent = data && data.error ? 'Submission failed: '+data.error : 'Submission failed.';
+                }
+            }catch(err){
+                console.error(err);
+                contactStatus.textContent = 'Error sending message.';
+            }
+            return;
+            }
+
+            // Fallback: open user's mail client with pre-filled content (mailto:)
+            const name = formData.get('name') || '';
+            const email = formData.get('email') || '';
+            const subject = formData.get('subject') || 'Message from portfolio contact form';
+            const message = formData.get('message') || '';
+
+            const body = `Name: ${name}
+    Email: ${email}
+
+    ${message}`;
+            const mailto = `mailto:feminto@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            // opening mail client
+            window.location.href = mailto;
+            contactStatus.textContent = 'Opened mail client.';
+        });
+        })();
+    </script>
 </body>
 </html>
