@@ -26,9 +26,9 @@
 
     nav{background:transparent;transition:background .25s ease, box-shadow .25s ease}
     nav.nav-solid{background:rgb(2, 6, 23);box-shadow:0 8px 30px rgba(2,6,23,0.45)}
-    html.light nav.nav-solid{background:#e0eafd;box-shadow:0 8px 30px rgba(11,18,32,0.06)}
+    html.light nav.nav-solid{background:#d6dff0;box-shadow:0 8px 30px rgba(11,18,32,0.06)}
 
-    html.light body{background:#e0eafd;color:#0b1220}
+    html.light body{background:#e5edfc;color:#0b1220}
     html.light .text-slate-400{color:#475569}
     html.light .text-slate-300{color:#475569}
     html.light .pill{background:#dce5f8;color:#0b1220}
@@ -54,6 +54,7 @@
     .exp-card {cursor: pointer}
     .exp-card-header {display:flex;align-items:center;justify-content:space-between;gap:12px}
     .exp-card-title {font-weight:600}
+    .exp-card-subtitle {font-weight:600;color:rgba(148,163,184,1)}
     .exp-card-meta {font-size:0.75rem;color:rgba(148,163,184,1)}
     .exp-card-body {overflow:hidden;max-height:0;transition:max-height .35s ease, opacity .25s ease;padding-top:0}
     .exp-card.open .exp-card-body {max-height:1000px; padding-top:12px}
@@ -94,7 +95,7 @@
         <a href="#projects" class="text-sm hover:text-white">Projects</a>
         <a href="#visualizations" class="text-sm hover:text-white">Visualizations</a>
         <a href="#contact" class="text-sm hover:text-white">Contact</a>
-        <a id="navResume" href="assets/documents/FemintoFrancis_Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm">Resume</a>
+        <a id="navResume" href="assets/documents/Feminto Francis_Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm">Resume</a>
         <button id="themeBtn" class="px-3 py-1 rounded-md bg-slate-800 text-sm" aria-pressed="false">Light</button>
       </div>
     </div>
@@ -142,27 +143,34 @@
     <section id="skills" class="fade-up p-6 rounded-2xl card-bg section-bg mt-6">
       <h2 class="text-2xl font-semibold mb-4">Skills</h2>
       <p class="text-slate-400 mb-3 max-w-2xl">Core technical skills and tools I've used in my professional experience.</p>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-5">
+        <div class="p-6 rounded-2xl card card-bg">
+          <div class="flex items-center gap-2">
+            <img src="assets/icons/ai-svgrepo-com.svg" alt="AI & Machine Learning" class="skill-icon w-7 h-7"/>
+            <span class="mt-2 text-xs text-slate-400">AI & ML</span>
+          </div>
+          <div class="mt-3 text-sm font-semibold">OpenAI • Claude • NLP • LLMs • SciKit</div>
+        </div>
         <div class="p-6 rounded-2xl card card-bg">
           <div class="flex items-center gap-2">
             <img src="assets/icons/code-svgrepo-com.svg" alt="Programming & Scripting" class="skill-icon w-5 h-5"/>
-            <span class="mt-2 text-xs text-slate-400">Programming & Scripting</span>
+            <span class="mt-2 text-xs text-slate-400">Programming</span>
           </div>
-          <div class="mt-3 text-sm font-semibold">Python • SQL • PySpark • Machine Learning</div>
+          <div class="mt-3 text-sm font-semibold">Python • SQL • PySpark</div>
         </div>
         <div class="p-6 rounded-2xl card card-bg">
           <div class="flex items-center gap-2">
             <img src="assets/icons/database-svgrepo-com.svg" alt="Data Lakehouse" class="skill-icon w-5 h-5"/>
-            <span class="mt-2 text-xs text-slate-400">Database Lakeouse</span>
+            <span class="mt-2 text-xs text-slate-400">Data Lakehouse</span>
           </div>
-          <div class="mt-3 text-sm font-semibold">Redshift • Postgres • Athena • Snowflake • Hadoop</div>
+          <div class="mt-3 text-sm font-semibold">Redshift • Postgres • Snowflake • Hadoop</div>
         </div>
         <div class="p-6 rounded-2xl card card-bg">
           <div class="flex items-center gap-2">
             <img src="assets/icons/cloud-svgrepo-com.svg" alt="Cloud & ETL" class="skill-icon w-5 h-5"/>
             <span class="mt-2 text-xs text-slate-400">Cloud & ETL</span>
           </div>
-          <div class="mt-3 text-sm font-semibold">AWS • Azure • Databricks • Docker • Airflow • DBT</div>
+          <div class="mt-3 text-sm font-semibold">AWS • Azure • DBT • Databricks • Airflow</div>
         </div>
         <div class="p-6 rounded-2xl card card-bg">
           <div class="flex items-center gap-2">
@@ -179,13 +187,19 @@
       <div class="space-y-4">
 
         <!-- Experience card 1 -->
-        <article class="p-6 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
+        <article class="p-3 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
           <div class="exp-card-header">
-            <div>
-              <div class="exp-card-title">Business Intelligence Analyst - Arizona State University</div>
-              <div class="exp-card-meta">June 2023 - Present (Remote, USA)</div>
+            <!-- Logo on the left -->
+            <img src="assets/icons/ASU.png" alt="Arizona State University" class="skill-icon w-12 h-12 object-contain rounded-md flex-shrink-0"/>
+            <!-- All text on the right -->
+            <div class="flex-1">
+              <div class="exp-card-subtitle">Arizona State University</div>
+              <div class="exp-card-title">Business Intelligence Analyst</div>
+              <div class="exp-card-meta">Jun 2023 - Present (Remote, USA)</div>
             </div>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div class="exp-card-body">
             <ul class="mt-3 list-disc list-inside text-slate-300">
@@ -200,13 +214,19 @@
         </article>
 
         <!-- Experience card 2 -->
-        <article class="p-6 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
+        <article class="p-3 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
           <div class="exp-card-header">
-            <div>
-              <div class="exp-card-title">Business Intelligence Engineer - ZS Associates</div>
+            <!-- Logo on the left -->
+            <img src="assets/icons/ZS.png" alt="ZS Associates" class="skill-icon w-12 h-12 object-contain rounded-md flex-shrink-0"/>
+            <!-- All text on the right -->
+            <div class="flex-1">
+              <div class="exp-card-subtitle">ZS Associates</div>
+              <div class="exp-card-title">Business Intelligence Engineer</div>
               <div class="exp-card-meta">Nov 2020 - Jul 2022 (Pune, India)</div>
             </div>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div class="exp-card-body">
             <ul class="mt-3 list-disc list-inside text-slate-300">
@@ -223,13 +243,19 @@
         </article>
 
         <!-- Experience card 3 -->
-        <article class="p-6 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
+        <article class="p-3 rounded-2xl card card-bg exp-card" tabindex="0" aria-expanded="false">
           <div class="exp-card-header">
-            <div>
-              <div class="exp-card-title">Data Engineer - Larsen & Toubro</div>
+            <!-- Logo on the left -->
+            <img src="assets/icons/LnT.png" alt="Larsen & Toubro" class="skill-icon w-12 h-10 object-contain rounded-md flex-shrink-0"/>
+            <!-- All text on the right -->
+            <div class="flex-1">
+              <div class="exp-card-subtitle">Larsen & Toubro</div>
+              <div class="exp-card-title">Data Engineer</div>
               <div class="exp-card-meta">Jul 2018 - Sep 2020 (Vadodara, India)</div>
             </div>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div class="exp-card-body">
             <ul class="mt-3 list-disc list-inside text-slate-300">
@@ -259,19 +285,19 @@
         <article class="p-6 rounded-2xl card card-bg">
           <h3 class="font-semibold">AI-Powered Course Evaluation</h3>
           <div class="exp-card-meta">Arizona State University</div>
-          <p class="text-slate-300 mt-2">Led an AI initiative using the OpenAI model to analyze student survey, evaluate course and instructor performance, and guide data-driven decisions on course restructuring and resource allocation. This improved teaching quality and supported overall budget savings.</p>
+          <p class="text-slate-300 text-m mt-2">Led an AI initiative using the OpenAI model to analyze student survey, evaluate course and instructor performance, and guide data-driven decisions on course restructuring and resource allocation. This improved teaching quality and supported overall budget savings.</p>
           <div class="mt-3 text-xs muted">OpenAI API • GPT • Redshift • Python</div>
         </article>
         <article class="p-6 rounded-2xl card card-bg">
           <h3 class="font-semibold">Product & Customer Behavior</h3>
           <div class="exp-card-meta">Flexivan LLC</div>
-          <p class="text-slate-300 mt-2">Analyzed historical data for FlexiVan LLC, to forecast weekly product demand using machine learning techniques like feature engineering and gradient boosting, uncovering customer trends and seasonal patterns that optimized inventory and resource management.</p>
+          <p class="text-slate-300 text-m mt-2">Analyzed historical data for FlexiVan LLC, to forecast weekly product demand using machine learning techniques like feature engineering and gradient boosting, uncovering customer trends and seasonal patterns that optimized inventory and resource management.</p>
           <div class="mt-3 text-xs muted">Python • SQL • PowerBI • Machine Learning</div>
         </article>
         <article class="p-6 rounded-2xl card card-bg">
           <h3 class="font-semibold">Report Modernization</h3>
           <div class="exp-card-meta">ZS Associates</div>
-          <p class="text-slate-300 mt-2">Redesigned the reporting framework by migrating from traditional reports to Tableau, creating interactive, intuitive dashboards with richer insights and automated data updates. This initiative boosted report usage by 70% and strengthened data-driven decision-making across the organization.
+          <p class="text-slate-300 text-m mt-2">Redesigned the reporting framework by migrating from traditional reports to Tableau, creating interactive, intuitive dashboards with richer insights and automated data updates. This initiative boosted report usage by 70% and strengthened data-driven decision-making across the organization.
 </p>
           <div class="mt-3 text-xs muted">SQL • Tableau • Microsoft SSRS </div>
         </article>
