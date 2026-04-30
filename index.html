@@ -64,7 +64,10 @@
     .exp-card:focus-within {outline:2px solid rgba(124,58,237,0.14);outline-offset:3px;border-radius:12px}
 
     footer img {filter: invert(90%) brightness(200%); transition:filter .3s ease;}
-    html.light footer img {filter: invert(0%) brightness(100%);} 
+    html.light footer img {filter: invert(0%) brightness(100%);}
+
+    .skill-icon {filter: invert(90%) brightness(200%); transition:filter .3s ease;}
+    html.light .skill-icon {filter: invert(0%) brightness(100%);}
 
     headIcon img {filter: invert(90%) brightness(200%); transition:filter .3s ease;}
     html.light headIcon img {filter: invert(0%) brightness(100%);}
@@ -109,19 +112,19 @@
         <!-- trying the icons below description -->
         <headIcon class="flex justify-start gap-10 items-center text-center mt-10">
             <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
             </a>
             <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/github-142-svgrepo-com.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
             </a>
             <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/tableau-svgrepo-com.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tableau</span>
             </a>
             <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/leetcode-svgrepo-com.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Leetcode</span>
             </a>
         </headIcon>
@@ -141,19 +144,31 @@
       <p class="text-slate-400 mb-3 max-w-2xl">Core technical skills and tools I've used in my professional experience.</p>
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
         <div class="p-6 rounded-2xl card card-bg">
-          <div class="text-xs text-slate-400">Programming &amp; Scripting</div>
+          <div class="flex items-center gap-2">
+            <img src="assets/icons/code-svgrepo-com.svg" alt="Programming & Scripting" class="skill-icon w-5 h-5"/>
+            <span class="mt-2 text-xs text-slate-400">Programming & Scripting</span>
+          </div>
           <div class="mt-3 text-sm font-semibold">Python • SQL • PySpark • Machine Learning</div>
         </div>
         <div class="p-6 rounded-2xl card card-bg">
-          <div class="text-xs text-slate-400">Database &amp; Data Warehousing</div>
+          <div class="flex items-center gap-2">
+            <img src="assets/icons/database-svgrepo-com.svg" alt="Data Lakehouse" class="skill-icon w-5 h-5"/>
+            <span class="mt-2 text-xs text-slate-400">Database Lakeouse</span>
+          </div>
           <div class="mt-3 text-sm font-semibold">Redshift • Postgres • Athena • Snowflake • Hadoop</div>
         </div>
         <div class="p-6 rounded-2xl card card-bg">
-          <div class="text-xs text-slate-400">Cloud &amp; ETL</div>
+          <div class="flex items-center gap-2">
+            <img src="assets/icons/cloud-svgrepo-com.svg" alt="Cloud & ETL" class="skill-icon w-5 h-5"/>
+            <span class="mt-2 text-xs text-slate-400">Cloud & ETL</span>
+          </div>
           <div class="mt-3 text-sm font-semibold">AWS • Azure • Databricks • Docker • Airflow • DBT</div>
         </div>
         <div class="p-6 rounded-2xl card card-bg">
-          <div class="text-xs text-slate-400">Reporting &amp; BI</div>
+          <div class="flex items-center gap-2">
+            <img src="assets/icons/googleanalytics-svgrepo-com.svg" alt="Reporting & BI" class="skill-icon w-5 h-5"/>
+            <span class="mt-2 text-xs text-slate-400">Reporting & BI</span>
+          </div>
           <div class="mt-3 text-sm font-semibold">Tableau • Power BI • Matplotlib • SSRS</div>
         </div>
       </div>
@@ -178,8 +193,8 @@
               <li>Implemented an AI-driven model on course evaluation using OpenAI APIs, improving course planning and saving budget by 25%.</li>
               <li>Optimized Redshift data models, reducing query time by 50% and enhancing data quality.</li>
               <li>Built ML models to forecast enrollments, driving a 19% profit increase over two years.</li>
-              <li>Developed Tableau dashboards to track trends and KPIs across Academics, Finance, HR, and Employee data, reducing manual reporting time by 92%.</li>
-              <li>Partnered with cross-functional teams to diagnose and resolve data issues (25+ on average every quarter), converting complex findings into clear, actionable insights.</li>
+              <li>Developed Tableau dashboards to track trends & KPIs across Academics, Finance, and HR data, reducing manual reporting time by 92%.</li>
+              <li>Partnered with cross-functional teams to diagnose and resolve data issues (25+ average per quarter), and providing actionable insights.</li>
             </ul>
           </div>
         </article>
@@ -389,19 +404,19 @@
     <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
         <div class="flex justify-center gap-10 items-center text-center">
             <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
             </a>
             <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/github-142-svgrepo-com.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
             </a>
             <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/tableau-svgrepo-com.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tableau</span>
             </a>
             <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
+                <img src="assets/icons/leetcode-svgrepo-com.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Leetcode</span>
             </a>
         </div>
