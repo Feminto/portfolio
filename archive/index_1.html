@@ -35,9 +35,8 @@
     html.light section.section-bg{background:#dce5f8}
     html.light #skills .card-bg{background:#d5def3}
     html.light #skills .card-bg:hover{border:1px solid #e1e9f9}
-    html.light #education .card-bg, html.light #experience .card-bg, html.light #projects .card-bg, html.light #conferences .card-bg, html.light #contact .card-bg{background:#dce5f8}
+    html.light #education .card-bg, html.light #experience .card-bg, html.light #projects .card-bg, html.light #contact .card-bg{background:#dce5f8}
     html.light .card, html.light .card *{color:#0b1220}
-    html.light .card .text-indigo-400 { color: #4f46e5; }
     html.light .flip-card-back, html.light .flip-card-back * { color: #0b1220; }
     html.light nav a, html.light nav .text-sm, html.light nav .text-xs{color:#0b1220}
     html.light #themeBtn{background:#cad5e6;color:#0b1220}
@@ -118,7 +117,6 @@
         <a href="#skills" class="text-sm hover:text-white">Skills</a>
         <a href="#experience" class="text-sm hover:text-white">Experience</a>
         <a href="#projects" class="text-sm hover:text-white">Projects</a>
-        <a href="#conferences" class="text-sm hover:text-white">Conferences</a>
         <a href="#education" class="text-sm hover:text-white">Education</a>
         <a href="#visualizations" class="text-sm hover:text-white">Visualizations</a>
         <a href="#contact" class="text-sm hover:text-white">Contact</a>
@@ -139,19 +137,19 @@
         <p class="text-slate-300 max-w-xl mb-6 font-medium text-justify">Experienced in advanced reporting, building scalable ETL pipelines, and integrating AI-driven solutions to solve complex business problems. Skilled in handling large datasets, designing custom dashboards, and transforming complex information into meaningful insights to drive decisions.</p>
         <!-- trying the icons below description -->
         <headIcon class="flex justify-start gap-10 items-center text-center mt-10">
-            <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
             </a>
-            <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/github-142-svgrepo-com.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
             </a>
-            <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/tableau-svgrepo-com.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tableau</span>
             </a>
-            <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/leetcode-svgrepo-com.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Leetcode</span>
             </a>
@@ -389,33 +387,6 @@
       </div>
     </section>
 
-    <section id="conferences" class="fade-up">
-      <h2 class="text-2xl font-semibold mb-4">Conferences</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-
-        <!-- Conference Card 1 -->
-        <div class="p-6 rounded-2xl card card-bg">
-          <h3 class="font-semibold text-lg">7th Annual ASU Data Conference 2023</h3>
-          <p class="text-sm font-semibold text-indigo-400 mt-1">From Static to Dynamic: Enhancing Data Visualization and Analysis</p>
-          <div class="flex flex-wrap gap-4">
-            <span class="text-xs muted">Nov 2023 • Arizona, United States</span>
-          </div>
-          <p class="mt-4 text-slate-300 text-sm">Walked attendees through a full-stack transition from static crosstab reports to interactive Tableau dashboards, covering backend Redshift query optimization, data model restructuring, and dynamic parameter-driven visualizations. Sparked strong audience engagement around real-time data pipelines, dashboard performance tuning, and modern BI architecture.</p>
-        </div>
-
-        <!-- Conference Card 2 -->
-        <div class="p-6 rounded-2xl card card-bg">
-          <h3 class="font-semibold text-lg">8th ASU Data Conference 2024</h3>
-          <p class="text-sm font-semibold text-indigo-400 mt-1">Data-Driven Student Success: BI Approach to Graduation and Retention</p>
-          <div class="flex flex-wrap gap-4">
-            <span class="text-xs muted">Nov 2024 • Arizona, United States</span>
-          </div>
-          <p class="mt-4 text-slate-300 text-sm">Demonstrated an end-to-end BI pipeline tracking student Graduation and Retention Rates, from Alteryx Designer workflows for data transformation, through automated ingestion into Amazon Redshift, to an interactive Tableau dashboard surfacing actionable trends for academic, faculty, and administrative groups. Highlighted how a unified data platform can drive an impact across enrollment planning, and cohort-level decision-making.</p>
-        </div>
-
-      </div>
-    </section>
-
     <section id="education" class="fade-up">
       <h2 class="text-2xl font-semibold mb-4">Education</h2>
       <div class="grid md:grid-cols-1 gap-6">
@@ -552,19 +523,19 @@
   <footer class="border-t border-slate-800 py-8">
     <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
         <div class="flex justify-center gap-10 items-center text-center">
-            <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
             </a>
-            <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://github.com/Feminto" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/github-142-svgrepo-com.svg" alt="GitHub" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
             </a>
-            <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://public.tableau.com/app/profile/feminto.francis" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/tableau-svgrepo-com.svg" alt="Tableau Public" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tableau</span>
             </a>
-            <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+            <a href="https://leetcode.com/u/jeriom/" target="_blank" class="flex flex-col items-center group relative">
                 <img src="assets/icons/leetcode-svgrepo-com.svg" alt="Leetcode" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Leetcode</span>
             </a>
