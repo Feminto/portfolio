@@ -102,6 +102,12 @@
     .flip-btn:hover { background: rgba(99,102,241,0.7); }
     html.light .flip-btn { background: rgba(0, 0, 0, 0.212); }
     html.light .flip-btn:hover { background: rgba(99,102,241,0.5); }
+
+    /* Mobile menu */
+    #mobileMenu { max-height: 0; overflow: hidden; transition: max-height .35s ease, opacity .25s ease; opacity: 0; }
+    #mobileMenu.open { max-height: 500px; opacity: 1; }
+    html.light #mobileMenu { background: #d6dff0; }
+    html:not(.light) #mobileMenu { background: rgb(2,6,23); }
   </style>
 </head>
 <body class="bg-[#081226] text-slate-200">
@@ -114,7 +120,8 @@
           <div class="text-xs text-slate-400">Business Intelligence Engineer</div>
         </div>
       </a>
-      <div class="flex items-center space-x-6">
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center space-x-6">
         <a href="#skills" class="text-sm hover:text-white">Skills</a>
         <a href="#experience" class="text-sm hover:text-white">Experience</a>
         <a href="#projects" class="text-sm hover:text-white">Projects</a>
@@ -124,6 +131,28 @@
         <a href="#contact" class="text-sm hover:text-white">Contact</a>
         <a id="navResume" href="assets/documents/Feminto Francis_Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm">Resume</a>
         <button id="themeBtn" class="px-3 py-1 rounded-md bg-slate-800 text-sm" aria-pressed="false">Light</button>
+      </div>
+      <!-- Mobile: theme + hamburger -->
+      <div class="flex md:hidden items-center gap-3">
+        <button id="themeBtnMobile" class="px-3 py-1 rounded-md bg-slate-800 text-sm" aria-pressed="false">Light</button>
+        <button id="hamburgerBtn" aria-label="Toggle menu" class="w-9 h-9 flex flex-col justify-center items-center gap-1.5">
+          <span class="ham-bar block w-6 h-0.5 bg-current rounded transition-all duration-300"></span>
+          <span class="ham-bar block w-6 h-0.5 bg-current rounded transition-all duration-300"></span>
+          <span class="ham-bar block w-6 h-0.5 bg-current rounded transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile slide-down menu -->
+    <div id="mobileMenu" class="md:hidden px-6 pb-4">
+      <div class="flex flex-col space-y-4 pt-2">
+        <a href="#skills" class="mobile-nav-link text-sm hover:text-white">Skills</a>
+        <a href="#experience" class="mobile-nav-link text-sm hover:text-white">Experience</a>
+        <a href="#projects" class="mobile-nav-link text-sm hover:text-white">Projects</a>
+        <a href="#conferences" class="mobile-nav-link text-sm hover:text-white">Conferences</a>
+        <a href="#education" class="mobile-nav-link text-sm hover:text-white">Education</a>
+        <a href="#visualizations" class="mobile-nav-link text-sm hover:text-white">Visualizations</a>
+        <a href="#contact" class="mobile-nav-link text-sm hover:text-white">Contact</a>
+        <a href="assets/documents/Feminto Francis_Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm w-fit">Resume</a>
       </div>
     </div>
   </nav>
@@ -138,7 +167,11 @@
         </div>
         <p class="text-slate-300 max-w-xl mb-6 font-medium text-justify">Experienced in advanced reporting, building scalable ETL pipelines, and integrating AI-driven solutions to solve complex business problems. Skilled in handling large datasets, designing custom dashboards, and transforming complex information into meaningful insights to drive decisions.</p>
         <!-- trying the icons below description -->
-        <headIcon class="flex justify-start gap-10 items-center text-center mt-10">
+        <headIcon class="flex justify-start gap-8 items-center text-center mt-10">
+            <a href="mailto:feminto@gmail.com" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+                <img src="assets/icons/gmail-svgrepo-com.svg" alt="Gmail" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Gmail</span>
+            </a>
             <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
                 <img src="assets/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
@@ -503,47 +536,37 @@
 
     <section id="contact" class="fade-up">
       <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-      <div class="p-6 rounded-2xl card card-bg">
-        <!-- <p class="text-slate-400 mb-4">Let's connect!</p> -->
-        <div class="grid md:grid-cols-2 gap-6 items-start">
-          <!-- Left: contact details (unchanged) -->
-            <div>
-                <p class="text-slate-300 text-m">I’d love to learn more about any exciting opportunities where I can contribute and make a meaningful impact. Let’s connect and explore how I can add value to your team or project.</p>
-                <p class="text-sm mt-5 text-slate-400">Email</p>
-                <a href="mailto:feminto@gmail.com" class="block font-semibold">feminto@gmail.com</a>
-                <p class="text-sm mt-5 text-slate-400">Phone</p>
-                <div class="font-semibold">+1 (602) 727-1308</div>
+      <div class="p-10 rounded-2xl card card-bg">
+        <div>
+          <form id="contactForm" class="space-y-4" aria-label="Contact form">
+            <p><span class="text-m text-slate-400">To:</span> <span class="text-m font-semibold">feminto@gmail.com</span></p>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="sr-only">Name</label>
+                <input id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Name">
+              </div>
+              <div>
+                <label for="email" class="sr-only">Email</label>
+                <input id="email" name="email" type="email" required class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Your email">
+                <span id="emailError" class="hidden text-xs text-red-400 mt-1 block">Please enter a valid email address.</span>
+              </div>
             </div>
-          <!-- Right: contact form -->
-          <div>
-            <form id="contactForm" class="space-y-4" aria-label="Contact form">
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label for="name" class="sr-only">Name</label>
-                  <input id="name" name="name" required class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Name">
-                </div>
-                <div>
-                  <label for="email" class="sr-only">Email</label>
-                  <input id="email" name="email" type="email" required class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Email">
-                </div>
-              </div>
 
-              <div>
-                <label for="subject" class="sr-only">Subject</label>
-                <input id="subject" name="subject" class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Subject">
-              </div>
+            <div>
+              <label for="subject" class="sr-only">Subject</label>
+              <input id="subject" name="subject" class="w-full px-4 py-2 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Subject">
+            </div>
 
-              <div>
-                <label for="message" class="sr-only">Message</label>
-                <textarea id="message" name="message" rows="3" required class="w-full px-4 py-3 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Message"></textarea>
-              </div>
+            <div>
+              <label for="message" class="sr-only">Message</label>
+              <textarea id="message" name="message" rows="3" required class="w-full px-4 py-3 rounded-md bg-transparent border border-slate-700 focus:border-indigo-400 outline-none" placeholder="Message"></textarea>
+            </div>
 
-              <div class="flex items-center gap-3">
-                <button type="submit" id="contactSubmit" class="px-4 py-2 rounded-md bg-indigo-600 text-white">Send message</button>
-                <span id="contactStatus" class="text-sm text-slate-400" role="status" aria-live="polite"></span>
-              </div>
-            </form>
-          </div>
+            <div class="flex items-center gap-3">
+              <button type="submit" id="contactSubmit" class="px-4 py-2 rounded-md bg-indigo-600 text-white">Send message</button>
+              <span id="contactStatus" class="text-sm text-slate-400" role="status" aria-live="polite"></span>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -551,7 +574,11 @@
 
   <footer class="border-t border-slate-800 py-8">
     <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
-        <div class="flex justify-center gap-10 items-center text-center">
+        <div class="flex justify-center gap-8 items-center text-center">
+            <a href="mailto:feminto@gmail.com" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
+                <img src="assets/icons/gmail-svgrepo-com.svg" alt="Gmail" class="w-6 h-6 mb-1 filter invert"/>
+                <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">Gmail</span>
+            </a>
             <a href="https://www.linkedin.com/in/feminto-francis" target="_blank" class="flex flex-col items-center group relative transition-transform duration-200 hover:-translate-y-1">
                 <img src="assets/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" class="w-6 h-6 mb-1 filter invert"/>
                 <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-white bg-slate-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
@@ -578,13 +605,48 @@
         const obs = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') }) },{threshold:0.12})
         document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
 
+        // Theme toggle — syncs both desktop and mobile buttons
         const themeBtn = document.getElementById('themeBtn');
+        const themeBtnMobile = document.getElementById('themeBtnMobile');
         document.documentElement.classList.remove('light');
         themeBtn.textContent = 'Light';
+        themeBtnMobile.textContent = 'Light';
 
-        themeBtn.addEventListener('click', ()=>{
-        const isLightNow = document.documentElement.classList.toggle('light');
-        themeBtn.textContent = isLightNow ? 'Dark' : 'Light';
+        function applyTheme(){
+          const isLightNow = document.documentElement.classList.toggle('light');
+          themeBtn.textContent = isLightNow ? 'Dark' : 'Light';
+          themeBtnMobile.textContent = isLightNow ? 'Dark' : 'Light';
+        }
+        themeBtn.addEventListener('click', applyTheme);
+        themeBtnMobile.addEventListener('click', applyTheme);
+
+        // Hamburger menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamBars = document.querySelectorAll('.ham-bar');
+
+        hamburgerBtn.addEventListener('click', ()=>{
+          const isOpen = mobileMenu.classList.toggle('open');
+          // animate bars into X
+          if(isOpen){
+            hamBars[0].style.transform = 'translateY(8px) rotate(45deg)';
+            hamBars[1].style.opacity = '0';
+            hamBars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+          } else {
+            hamBars[0].style.transform = '';
+            hamBars[1].style.opacity = '';
+            hamBars[2].style.transform = '';
+          }
+        });
+
+        // Close mobile menu when a link is tapped
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', ()=>{
+            mobileMenu.classList.remove('open');
+            hamBars[0].style.transform = '';
+            hamBars[1].style.opacity = '';
+            hamBars[2].style.transform = '';
+          });
         });
 
         (function(){
@@ -634,10 +696,38 @@
 
         const contactForm = document.getElementById('contactForm');
         const contactStatus = document.getElementById('contactStatus');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
         if(!contactForm) return;
+
+        // Validate email format on blur
+        emailInput.addEventListener('blur', ()=>{
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if(emailInput.value && !emailRegex.test(emailInput.value)){
+            emailError.classList.remove('hidden');
+            emailInput.classList.add('border-red-400');
+          } else {
+            emailError.classList.add('hidden');
+            emailInput.classList.remove('border-red-400');
+          }
+        });
+
+        // Clear error when user starts correcting
+        emailInput.addEventListener('input', ()=>{
+          emailError.classList.add('hidden');
+          emailInput.classList.remove('border-red-400');
+        });
 
         contactForm.addEventListener('submit', async (e)=>{
             e.preventDefault();
+            // Validate email before sending
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(emailInput.value)){
+              emailError.classList.remove('hidden');
+              emailInput.classList.add('border-red-400');
+              emailInput.focus();
+              return;
+            }
             contactStatus.textContent = 'Sending...';
             const formData = new FormData(contactForm);
 
